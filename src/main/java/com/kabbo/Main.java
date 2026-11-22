@@ -68,7 +68,8 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.println("\n--- All Students ---");
+                        // Returns data of all students
+                        System.out.println("\n");
                         studentRepository.getAllStudent();
                         break;
 
