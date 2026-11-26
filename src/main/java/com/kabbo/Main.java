@@ -1,8 +1,10 @@
 package com.kabbo;
 
-import com.kabbo.repository.StudentRepository;
 import com.kabbo.model.Student; // Make sure this import matches your Student class location
+import com.kabbo.repository.StudentRepository;
+
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -25,11 +27,13 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character (important!)
 
             // 3. Handle the choice
             try {
+                // Move 'nextInt()' inside the try block
+                int choice = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character (important!)
+
                 switch (choice) {
                     case 1:
                         System.out.print("Enter Name: ");
@@ -89,8 +93,14 @@ public class Main {
                     default:
                         System.out.println("Invalid choice! Please enter a number between 1 and 6.");
                 }
-            } catch (SQLException e) {
-                System.out.println("Database error occurred: " + e.getMessage());
+            } catch(InputMismatchException e){
+                // 4. Catch NON-NUMBER Inputs
+                System.out.println("Error Input! Please Enter a Valid Number, Not Characters");
+                scanner.nextLine(); // VERY IMPORTANT: Clear the bad input from the scanner
+            }
+
+            catch (SQLException e) {
+                System.out.println("Database error occurred: \n" + e.getMessage());
             }
         }
         

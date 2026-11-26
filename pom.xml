@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <!-- We can add custom Key Values inside properties -->
         <java.version>26.0.2</java.version>
         <author.name>KABBO</author.name>
         <maven.compiler.source>26</maven.compiler.source>
@@ -16,6 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- External jar files needed for this Maven Project -->
+    <!-- These third party libraries are also called - "Artifacts" -->
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>

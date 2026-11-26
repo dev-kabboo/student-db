@@ -35,6 +35,12 @@ public class Main {
 //        String updateSql = "UPDATE students SET age = 33 WHERE id = 5";
 //        studentRepository.completeCRUD(updateSql);
 
+        // TEST 3: General Purpose DELETE
+        String deleteSql = "DELTE FROM students WHERE id = 5";
+        studentRepository.completeCRUD(updateSql);
+
+        // TEST 4: INSERT Students
+
 
     }
 }

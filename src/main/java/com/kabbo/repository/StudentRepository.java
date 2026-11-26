@@ -12,7 +12,7 @@ public class StudentRepository {
     String password = "password";
 
 
-    // S2: CREATE Operation
+    // S2: CREATE Operation method
     public void createStudent(Student student) throws SQLException {
 
         // Dynamic Query
@@ -25,6 +25,9 @@ public class StudentRepository {
             // Smart interface for JDBC Works
             PreparedStatement preparedStatement = connection.prepareStatement(sql)){
 
+            // Parameter mapping: assigning Student properties to the PreparedStatement
+            // Bind the Student object's data to the SQL query placeholders (?) (Note: Index starts at 1, not 0)
+            // We will Set values in the Main.java file
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getEmail());
             preparedStatement.setInt(3, student.getAge());
@@ -206,7 +209,7 @@ public class StudentRepository {
         }
     }
 
-    // S6: mapRow
+    // S6: mapRow of the S5's READ Operation
     private Student mapRow(ResultSet resultSet) throws SQLException {
         Student student = new Student();
 
